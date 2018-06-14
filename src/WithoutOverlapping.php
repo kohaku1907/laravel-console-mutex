@@ -21,6 +21,7 @@ trait WithoutOverlapping
         $mutex = new Mutex($this);
         if (!$mutex->acquireLock($this->getMutexTimeout())) {
             Log::info('Command is running now!');
+            return;
             //throw new RuntimeException('Command is running now!');
         }
 
